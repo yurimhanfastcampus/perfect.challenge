@@ -571,23 +571,54 @@
       <h2 class="summary-title">미션 달성하고 받을 수 있는 리워드</h2>
 
       <div class="summary-grid">
-        <div class="summary-item">
-          <span class="summary-step">STEP 01</span>
-          <div class="summary-reward">6개월<br>복습권</div>
-        </div>
+  <button type="button" class="summary-item summary-trigger"
+          data-target="step-1" aria-controls="step-1" aria-pressed="false">
+    <span class="summary-step">STEP 01</span>
+    <span class="summary-reward">6개월<br>복습권</span>
+  </button>
 
-        <div class="summary-item">
-          <span class="summary-step">STEP 02</span>
-          <div class="summary-reward">치킨 또는<br>편의점 상품권</div>
-        </div>
+  <button type="button" class="summary-item summary-trigger"
+          data-target="step-2" aria-controls="step-2" aria-pressed="false">
+    <span class="summary-step">STEP 02</span>
+    <span class="summary-reward">치킨 또는<br>편의점 상품권</span>
+  </button>
 
-        <div class="summary-item">
-          <span class="summary-step">STEP 03</span>
-          <div class="summary-reward">커피<br>기프티콘</div>
-        </div>
-      </div>
-    </section>
+  <button type="button" class="summary-item summary-trigger"
+          data-target="step-3" aria-controls="step-3" aria-pressed="false">
+    <span class="summary-step">STEP 03</span>
+    <span class="summary-reward">커피<br>기프티콘</span>
+  </button>
+</div>
 
+    /* 상단 리워드 클릭 기능 */
+.summary-trigger {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.summary-trigger:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+
+.summary-trigger:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* 선택된 리워드 */
+.summary-trigger.active {
+  border: 2px solid var(--green);
+  background: #eaf2ee;
+}
+
+/* 선택된 참여 방법 카드 */
+.step-card.active {
+  border: 2px solid var(--green);
+  background: #fbfdfb;
+  box-shadow: 0 4px 16px rgba(18, 63, 53, 0.08);
+}
     <!-- EVENT CONTENT -->
     <section class="content">
 
@@ -597,7 +628,7 @@
       </div>
 
       <!-- STEP 1 -->
-      <article class="step-card">
+      <article class="step-card" id="step-1">
         <div class="step-top">
           <span class="step-number">STEP 01</span>
           <span class="step-condition">강의 수강 미션</span>
@@ -619,7 +650,7 @@
       </article>
 
       <!-- STEP 2 -->
-      <article class="step-card">
+    <article class="step-card" id="step-2">
         <div class="step-top">
           <span class="step-number">STEP 02</span>
           <span class="step-condition">시험 및 평가 미션</span>
@@ -648,7 +679,7 @@
       </article>
 
       <!-- STEP 3 -->
-      <article class="step-card">
+      <article class="step-card" id="step-3">
         <div class="step-top">
           <span class="step-number">STEP 03</span>
           <span class="step-condition">후기 작성 미션</span>
@@ -724,5 +755,36 @@
     </footer>
 
   </main>
+  <script>
+  const rewardButtons = document.querySelectorAll('.summary-trigger');
+  const stepCards = document.querySelectorAll('.step-card');
+
+  rewardButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.dataset.target;
+
+      // 모든 선택 상태 초기화
+      rewardButtons.forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+
+      stepCards.forEach(card => {
+        card.classList.remove('active');
+      });
+
+      // 클릭한 리워드 강조
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+
+      // 해당 참여 방법 카드 강조
+      const targetCard = document.getElementById(targetId);
+
+      if (targetCard) {
+        targetCard.classList.add('active');
+      }
+    });
+  });
+</script>
 </body>
 </html>
