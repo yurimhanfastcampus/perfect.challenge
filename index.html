@@ -60,11 +60,11 @@
       border-bottom: 1px solid #edf0ed;
     }
 
-    .brand-logo {
-      display: block;
-      width: 185px;
-      height: auto;
-      object-fit: contain;
+    .brand-name {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1.2px;
     }
 
     .header-label {
@@ -181,7 +181,6 @@
     }
 
     .summary-reward {
-      display: block;
       color: var(--green);
       font-size: 15px;
       font-weight: 800;
@@ -215,6 +214,13 @@
       background: #eaf2ee;
     }
 
+    /* 선택된 참여 방법 카드 */
+    .step-card.active {
+      border: 2px solid var(--green);
+      background: #fbfdfb;
+      box-shadow: 0 4px 16px rgba(18, 63, 53, 0.08);
+    }
+
     /* CONTENT */
     .content {
       padding: 48px 40px 56px;
@@ -245,14 +251,7 @@
       border: 1px solid #e3eae5;
       border-radius: 18px;
       background: var(--white);
-      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    /* 선택된 참여 방법 카드 */
-    .step-card.active {
-      border: 2px solid var(--green);
-      background: #fbfdfb;
-      box-shadow: 0 4px 16px rgba(18, 63, 53, 0.08);
+      transition: border 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .step-top {
@@ -487,8 +486,8 @@
         padding: 18px 22px;
       }
 
-      .brand-logo {
-        width: 150px;
+      .brand-name {
+        font-size: 19px;
       }
 
       .header-label {
@@ -561,8 +560,8 @@
     }
 
     @media (max-width: 360px) {
-      .brand-logo {
-        width: 125px;
+      .brand-name {
+        font-size: 17px;
       }
 
       .summary-reward {
@@ -581,11 +580,7 @@
 
     <!-- HEADER -->
     <header class="header">
-      <img
-        src="fastcampus-logo.jpg"
-        alt="FastCampus 패스트캠퍼스 로고"
-        class="brand-logo"
-      />
+      <div class="brand-name">패스트캠퍼스</div>
       <div class="header-label">SPECIAL REWARD EVENT</div>
     </header>
 
@@ -607,35 +602,20 @@
       <h2 class="summary-title">미션 달성하고 받을 수 있는 리워드</h2>
 
       <div class="summary-grid">
-        <button
-          type="button"
-          class="summary-item summary-trigger"
-          data-target="step-1"
-          aria-controls="step-1"
-          aria-pressed="false"
-        >
+        <button type="button" class="summary-item summary-trigger"
+                data-target="step-1" aria-controls="step-1" aria-pressed="false">
           <span class="summary-step">STEP 01</span>
           <span class="summary-reward">6개월<br>복습권</span>
         </button>
 
-        <button
-          type="button"
-          class="summary-item summary-trigger"
-          data-target="step-2"
-          aria-controls="step-2"
-          aria-pressed="false"
-        >
+        <button type="button" class="summary-item summary-trigger"
+                data-target="step-2" aria-controls="step-2" aria-pressed="false">
           <span class="summary-step">STEP 02</span>
           <span class="summary-reward">치킨 또는<br>편의점 상품권</span>
         </button>
 
-        <button
-          type="button"
-          class="summary-item summary-trigger"
-          data-target="step-3"
-          aria-controls="step-3"
-          aria-pressed="false"
-        >
+        <button type="button" class="summary-item summary-trigger"
+                data-target="step-3" aria-controls="step-3" aria-pressed="false">
           <span class="summary-step">STEP 03</span>
           <span class="summary-reward">커피<br>기프티콘</span>
         </button>
@@ -779,7 +759,6 @@
 
   </main>
 
-  <!-- REWARD STEP INTERACTION -->
   <script>
     const rewardButtons = document.querySelectorAll('.summary-trigger');
     const stepCards = document.querySelectorAll('.step-card');
@@ -788,13 +767,12 @@
       button.addEventListener('click', () => {
         const targetId = button.dataset.target;
 
-        // 모든 리워드 선택 상태 초기화
+        // 모든 선택 상태 초기화
         rewardButtons.forEach(item => {
           item.classList.remove('active');
           item.setAttribute('aria-pressed', 'false');
         });
 
-        // 모든 참여 방법 카드 강조 해제
         stepCards.forEach(card => {
           card.classList.remove('active');
         });
@@ -803,7 +781,7 @@
         button.classList.add('active');
         button.setAttribute('aria-pressed', 'true');
 
-        // 클릭한 리워드에 해당하는 참여 방법 카드 강조
+        // 해당 참여 방법 카드 강조
         const targetCard = document.getElementById(targetId);
 
         if (targetCard) {
@@ -812,6 +790,5 @@
       });
     });
   </script>
-
 </body>
 </html>
