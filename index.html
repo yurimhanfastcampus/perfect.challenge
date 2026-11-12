@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -80,7 +81,8 @@
       color: var(--white);
       text-align: center;
       background:
-        radial-gradient(circle at 85% 15%, rgba(143, 190, 165, 0.22), transparent 28%),
+        radial-gradient(circle at 12% 18%, rgba(245, 215, 123, 0.20), transparent 24%),
+        radial-gradient(circle at 88% 82%, rgba(255, 255, 255, 0.10), transparent 26%),
         linear-gradient(135deg, #174b3e 0%, #0b3028 100%);
       overflow: hidden;
     }
@@ -112,9 +114,10 @@
       display: inline-block;
       padding: 7px 16px;
       margin-bottom: 20px;
-      border: 1px solid rgba(255,255,255,0.35);
+      border: 1px solid rgba(226, 239, 231, 0.48);
       border-radius: 30px;
-      color: #e2f1e8;
+      background: rgba(226, 239, 231, 0.10);
+      color: #e4eee8;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 1px;
@@ -144,14 +147,15 @@
 
     /* REWARD SUMMARY */
     .summary {
-      padding: 34px 40px;
-      background: #f0f5f1;
+      padding: 36px 40px;
+      background: linear-gradient(180deg, #fff9e9 0%, #fffdf7 100%);
+      border-bottom: 1px solid #f3e8c8;
     }
 
     .summary-title {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       color: var(--green);
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
       text-align: center;
     }
@@ -163,16 +167,24 @@
     }
 
     .summary-item {
-      padding: 20px 10px;
-      border: 1px solid #dce8df;
-      border-radius: 14px;
-      background: var(--white);
+      padding: 18px 10px 20px;
+      border: 1px solid #eee2c3;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #fffdf7 100%);
+      box-shadow: 0 5px 16px rgba(115, 86, 25, 0.07);
       text-align: center;
+    }
+
+    .summary-icon {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 25px;
+      line-height: 1.2;
     }
 
     .summary-step {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       color: #82968a;
       font-size: 11px;
       font-weight: 800;
@@ -198,8 +210,9 @@
     }
 
     .summary-trigger:hover {
-      border-color: var(--green);
-      transform: translateY(-2px);
+      border-color: #d4ad4c;
+      box-shadow: 0 8px 20px rgba(115, 86, 25, 0.13);
+      transform: translateY(-3px);
     }
 
     .summary-trigger:focus-visible {
@@ -209,8 +222,9 @@
 
     /* 선택된 리워드 */
     .summary-trigger.active {
-      border: 2px solid var(--green);
-      background: #eaf2ee;
+      border: 2px solid #c99d32;
+      background: linear-gradient(180deg, #fff4cf 0%, #fffaf0 100%);
+      box-shadow: 0 7px 20px rgba(174, 128, 27, 0.16);
     }
 
     /* 선택된 참여 방법 카드 */
@@ -245,6 +259,7 @@
 
     /* STEP CARD */
     .step-card {
+      scroll-margin-top: 20px;
       margin-bottom: 22px;
       padding: 28px;
       border: 1px solid #e3eae5;
@@ -302,7 +317,8 @@
       gap: 14px;
       padding: 18px;
       border-radius: 12px;
-      background: #f1f6f2;
+      border: 1px solid #f0e1b8;
+      background: linear-gradient(100deg, #fff8e5 0%, #fffdf7 100%);
     }
 
     .reward-icon {
@@ -312,8 +328,9 @@
       justify-content: center;
       width: 48px;
       height: 48px;
-      border-radius: 12px;
-      background: #e0ece3;
+      border: 1px solid #f0dfae;
+      border-radius: 13px;
+      background: #fff0c2;
       font-size: 25px;
     }
 
@@ -383,15 +400,26 @@
     .guide {
       margin-top: 38px;
       padding: 28px;
+      border: 1px solid #f1df9b;
       border-radius: 16px;
-      background: #edf4ef;
+      background: #fff5cc;
       text-align: center;
+    }
+
+    .guide-icon {
+      margin-bottom: 8px;
+      font-size: 34px;
+      line-height: 1.2;
     }
 
     .guide-label {
       display: inline-block;
       margin-bottom: 10px;
-      color: #789184;
+      padding: 5px 11px;
+      border: 1px solid #ead28c;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.62);
+      color: #92701e;
       font-size: 11px;
       font-weight: 900;
       letter-spacing: 1px;
@@ -416,16 +444,18 @@
       justify-content: center;
       min-height: 46px;
       padding: 0 24px;
-      border: 1px solid var(--green);
-      border-radius: 8px;
-      color: var(--green);
+      border: 1px solid #b58a25;
+      border-radius: 9px;
+      background: linear-gradient(180deg, #fffdf7 0%, #fff6d9 100%);
+      color: #765817;
       font-size: 14px;
       font-weight: 800;
       transition: all 0.2s;
     }
 
     .guide-button:hover {
-      background: var(--green);
+      border-color: #9c741b;
+      background: #9c741b;
       color: var(--white);
     }
 
@@ -573,7 +603,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-tag">SPECIAL REWARD CHALLENGE</div>
+      <div class="hero-tag">🎁 SPECIAL REWARD CHALLENGE</div>
       <h1>
         도전할수록 커지는<br>
         <span>스페셜 리워드!</span>
@@ -591,18 +621,21 @@
       <div class="summary-grid">
         <button type="button" class="summary-item summary-trigger"
                 data-target="step-1" aria-controls="step-1" aria-pressed="false">
+          <span class="summary-icon" aria-hidden="true">📚</span>
           <span class="summary-step">STEP 01</span>
           <span class="summary-reward">6개월<br>복습권</span>
         </button>
 
         <button type="button" class="summary-item summary-trigger"
                 data-target="step-2" aria-controls="step-2" aria-pressed="false">
+          <span class="summary-icon" aria-hidden="true">🎁</span>
           <span class="summary-step">STEP 02</span>
           <span class="summary-reward">치킨 또는<br>편의점 상품권</span>
         </button>
 
         <button type="button" class="summary-item summary-trigger"
                 data-target="step-3" aria-controls="step-3" aria-pressed="false">
+          <span class="summary-icon" aria-hidden="true">☕</span>
           <span class="summary-step">STEP 03</span>
           <span class="summary-reward">커피<br>기프티콘</span>
         </button>
@@ -676,10 +709,6 @@
           <span class="step-condition">후기 작성 미션</span>
         </div>
 
-        <div class="step3-restriction">
-          STEP 2 달성자만 참여할 수 있습니다.
-        </div>
-
         <h3>고용24 칭찬후기 작성하기</h3>
         <p class="step-description">
           훈련 종료 후 고용24에 칭찬후기를 작성하고,
@@ -702,6 +731,7 @@
 
       <!-- STUDY GUIDE -->
       <section class="guide">
+        <div class="guide-icon" aria-hidden="true">📚</div>
         <span class="guide-label">STUDY GUIDE</span>
         <h3>시험 준비가 막막하다면?</h3>
         <p>
@@ -726,12 +756,12 @@
       <h3>꼭 확인해 주세요!</h3>
       <ul>
         <li>STEP 2 시험 100점은 첫 응시 결과를 기준으로 인정됩니다.</li>
-        <li>시험 재응시를 통해 100점을 달성한 경우에는 STEP 2 리워드 지급 대상에 포함되지 않습니다.</li>
-        <li>STEP 2 리워드는 조건 달성 여부 확인 후 선택하여 접수할 수 있습니다.</li>
-        <li>STEP 3 후기 작성 및 인증은 STEP 2 달성자에 한해 참여할 수 있습니다.</li>
+        <li><strong>시험 재응시를 통해 100점을 달성한 경우에는 STEP 2 리워드 지급 대상에 포함되지 않습니다.</strong></li>
+        <li>STEP 2 는 조건 달성시, 두 리워드 중 선택하신 리워드 한 가지만 제공됩니다.</li>
+        <li>STEP 3 이벤트는 수료자에 한하여 참여 기회가 주어집니다.</li>
         <li>STEP 3는 훈련 종료 후 고용24 칭찬후기를 작성하고 구글폼 인증을 제출해야 합니다.</li>
-        <li>리워드는 지급 조건 충족 여부 확인 후 제공됩니다.</li>
-        <li>리워드는 예산 소진 시 사전 공지 후 조기 종료될 수 있습니다.</li>
+        <li>리워드는 지급 조건 충족 여부 확인 후, 종강 이후 한 달 내로 제공됩니다.</li>
+        <li>리워드는 내부 사정에 따라 다른 상품으로 교체될 수 있습니다.</li>
       </ul>
     </section>
 
@@ -770,6 +800,12 @@
 
         if (targetCard) {
           targetCard.classList.add('active');
+
+          // 선택한 STEP 영역으로 부드럽게 이동
+          targetCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       });
     });
